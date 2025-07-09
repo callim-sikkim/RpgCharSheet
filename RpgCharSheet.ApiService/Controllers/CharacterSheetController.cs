@@ -7,5 +7,6 @@ namespace RpgCharSheet.ApiService.Controllers;
 public class CharacterSheetController : ControllerBase
 {
     [HttpGet]
-    public IActionResult Get() => Ok("działa");
+    public IActionResult Get() 
+        => Ok("działa");
 }
