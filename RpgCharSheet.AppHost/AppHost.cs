@@ -3,11 +3,11 @@ var builder = DistributedApplication.CreateBuilder(args);
 var apiService = builder.AddProject<Projects.RpgCharSheet_ApiService>("apiservice")
     .WithHttpHealthCheck("/health");
 
-builder
-    .AddNpmApp("RpgCharSheetFrontend", "../RpgCharSheet.Frontend")
+builder.AddNpmApp("angular", "../RpgCharSheet.Front")
+    .WithReference(apiService)
+    .WaitFor(apiService)
+    .WithHttpEndpoint(env: "PORT", targetPort: 4200)
     .WithExternalHttpEndpoints()
-    // .WithHttpHealthCheck("/health") //TODO add health check
-    .WithEndpoint(targetPort: 4200, port: 4200, name: "http", env: "PORT", isProxied: false)
-    .WaitFor(apiService);
+    .WithHttpHealthCheck();
 
 builder.Build().Run();

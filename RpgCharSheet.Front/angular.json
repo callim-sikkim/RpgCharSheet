@@ -69,10 +69,14 @@
               "buildTarget": "RpgCharSheet.Frontend:build:production"
             },
             "development": {
-              "buildTarget": "RpgCharSheet.Frontend:build:development"
+              "buildTarget": "RpgCharSheet.Frontend:build:development",
+              "ssl": false
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "development",
+          "options": {
+            "proxyConfig": "proxy.conf.js"
+          }
         },
         "extract-i18n": {
           "builder": "@angular/build:extract-i18n"
@@ -99,5 +103,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }
