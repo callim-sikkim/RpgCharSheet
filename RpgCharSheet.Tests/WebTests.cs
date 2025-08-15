@@ -31,10 +31,10 @@ public class WebTests
         await app.StartAsync(cancellationToken).WaitAsync(DefaultTimeout, cancellationToken);
 
         // Act
-        var httpClient = app.CreateHttpClient("webfrontend");
-        await app.ResourceNotifications.WaitForResourceHealthyAsync("webfrontend", cancellationToken)
+        var httpClient = app.CreateHttpClient("apiservice");
+        await app.ResourceNotifications.WaitForResourceHealthyAsync("apiservice", cancellationToken)
             .WaitAsync(DefaultTimeout, cancellationToken);
-        var response = await httpClient.GetAsync("/", cancellationToken);
+        var response = await httpClient.GetAsync("api/CharacterSheet", cancellationToken);
 
         // Assert
         Assert.Equal(HttpStatusCode.OK, response.StatusCode);
