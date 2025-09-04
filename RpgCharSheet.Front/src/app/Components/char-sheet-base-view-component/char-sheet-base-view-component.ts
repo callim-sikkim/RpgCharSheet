@@ -7,5 +7,4 @@ import { Component } from '@angular/core';
   styleUrl: './char-sheet-base-view-component.scss'
 })
 export class CharSheetBaseViewComponent {
-
 }

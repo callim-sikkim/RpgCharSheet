@@ -30,7 +30,7 @@
               }
             ],
             "styles": [
-              "src/styles.scss"
+              "node_modules/bootstrap/dist/css/bootstrap.css"
             ],
             "server": "src/main.server.ts",
             "outputMode": "server",
@@ -97,7 +97,11 @@
               }
             ],
             "styles": [
+              "node_modules/bootstrap/dist/bootstrap.scss",
               "src/styles.scss"
+            ],
+            "scripts": [
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
             ]
           }
         }
